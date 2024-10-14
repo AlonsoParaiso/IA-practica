@@ -74,11 +74,12 @@ public class PlayerMovement_rb : MonoBehaviour
 
     private bool IsGrounded()
     {
-        RaycastHit[] colliders = Physics.SphereCastAll(new Vector3(transform.position.x, transform.position.y - transform.localScale.y/2 , transform.position.z), sphereRadius, Vector3.up);
+        
+        Collider[] colliders = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y - transform.localScale.y / 2, transform.position.z), sphereRadius);
         
         for (int i = 0; i < colliders.Length; i++)
         {
-            if (colliders[i].collider.gameObject.layer == LayerMask.NameToLayer(groundMask))
+            if (colliders[i].gameObject.layer == LayerMask.NameToLayer(groundMask))
             {
                 return true;
             }
