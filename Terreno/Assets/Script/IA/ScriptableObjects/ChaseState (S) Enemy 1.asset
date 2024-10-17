@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ChaseState (S) Enemy 1
   m_EditorClassIdentifier: 
   stateParamatres:
-  - actionValue: 0
-    action: {fileID: 11400000, guid: 2d9200541666cee44a1c5577e83a5eef, type: 2}
+  - actionParameters:
+    - action: {fileID: 11400000, guid: 2d9200541666cee44a1c5577e83a5eef, type: 2}
+      actionValue: 0
     nextState: {fileID: 11400000, guid: f7d65fca62968a143af07229797b7f51, type: 2}
+    and: 1

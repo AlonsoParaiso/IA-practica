@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: GuardState (S) Enemy 1
   m_EditorClassIdentifier: 
   stateParamatres:
-  - actionValue: 1
-    action: {fileID: 11400000, guid: 2d9200541666cee44a1c5577e83a5eef, type: 2}
+  - actionParameters:
+    - action: {fileID: 11400000, guid: 2d9200541666cee44a1c5577e83a5eef, type: 2}
+      actionValue: 1
     nextState: {fileID: 11400000, guid: f9bcf945926199d4aa018233d26b01c1, type: 2}
+    and: 1
   guardPoint: {x: 296.44412, y: 88.81419, z: 492.63193}

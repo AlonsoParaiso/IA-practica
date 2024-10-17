@@ -6,7 +6,7 @@ using UnityEngine;
 public class StateMachine : MonoBehaviour
 {
     public State initialState;
-    public State currentState;//private
+    private State currentState;//private
     // Start is called before the first frame update
     void Start()
     {

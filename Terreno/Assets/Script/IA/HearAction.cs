@@ -24,7 +24,7 @@ public class HearAction : Actions
 
     public override void DrawGizmos(GameObject owner)
     {
-        Gizmos.color = Color.black;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(owner.transform.position, radius);
     }
 }
