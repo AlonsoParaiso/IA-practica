@@ -7,15 +7,18 @@ using UnityEngine.AI;
 
 public class ChaseState : State
 {
+    public string blendParametrer;
     public override State Run(GameObject owner)
     {
         State nextState = CheckActions(owner);
 
         NavMeshAgent agent = owner.GetComponent<NavMeshAgent>();
         GameObject target= owner.GetComponent<Target>().target;
+        Animator anim = owner.GetComponent<Animator>();
 
         agent.SetDestination(target.transform.position);
-        
+        anim.SetFloat(blendParametrer, agent.velocity.magnitude / agent.speed);
+
 
         return nextState;
     }

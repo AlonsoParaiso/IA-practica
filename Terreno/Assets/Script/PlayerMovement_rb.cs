@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class PlayerMovement_rb : MonoBehaviour
 {
-    public float speed, running, rotationSpeed, jumpForce, sphereRadius /*, gravityScale*/;
+    [Header("Fisicas")]
+    public float speed, running, rotationSpeed, jumpForce, sphereRadius, acceleration /*, gravityScale*/;
     public string groundMask;
     private Rigidbody rb;
-    private float x, z, currentSpeed ,mouseX; //inputs
+    private float x, z,mouseX; //inputs
+    private float currentSpeed;
     private bool pressJump,pressRun;
     private Vector3 movementVector;
     // Start is called before the first frame update
@@ -30,7 +32,7 @@ public class PlayerMovement_rb : MonoBehaviour
         {
             pressJump = true;
         }
-
+        InterpolateSpeed();
     }
 
     void RotatePlayer()
@@ -47,14 +49,6 @@ public class PlayerMovement_rb : MonoBehaviour
 
     void ApplySpeed(bool shifhtPress)
     {
-        if (shifhtPress)
-        {
-            currentSpeed = running;
-        }
-        else
-        {
-            currentSpeed = speed;
-        }
         movementVector = (transform.forward * currentSpeed * z) + (transform.right * currentSpeed * x) + // transform.forward ir para alante y para atras, transform.right ir para derecha he izquierda
             new Vector3(0, rb.velocity.y, 0);
         rb.velocity = movementVector;
@@ -69,6 +63,22 @@ public class PlayerMovement_rb : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
             rb.AddForce(transform.up * jumpForce);
             pressJump = false;
+        }
+    }
+
+    void InterpolateSpeed()
+    {
+        if (pressRun && (x != 0 || z != 0))
+        {
+            currentSpeed = Mathf.Lerp(currentSpeed, running, acceleration * Time.deltaTime);
+        }
+        else if (x != 0 || z != 0)
+        {
+            currentSpeed = Mathf.Lerp(currentSpeed, speed, acceleration * Time.deltaTime);
+        }
+        else
+        {
+            currentSpeed = Mathf.Lerp(currentSpeed, 0, acceleration * Time.deltaTime);
         }
     }
 
@@ -92,8 +102,8 @@ public class PlayerMovement_rb : MonoBehaviour
         Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y - transform.localScale.y / 2, transform.position.z), sphereRadius);
     }
 
-    public Vector3 GetMovementVector()
+    public float GetCurrentSpeed()
     {
-        return movementVector;
+        return currentSpeed;
     }
 }
