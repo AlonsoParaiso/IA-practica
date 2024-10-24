@@ -9,14 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9ddffee5c8c7124ab18152f2283c797, type: 3}
-  m_Name: GuardState (S) Enemy 1
+  m_Script: {fileID: 11500000, guid: 2bc4e700eba46b84d9bdfd93753f1863, type: 3}
+  m_Name: ShootState (S)
   m_EditorClassIdentifier: 
   stateParamatres:
   - actionParameters:
     - action: {fileID: 11400000, guid: d9580e4bf2fe56046a45e7c2bc97c626, type: 2}
       actionValue: 0
     nextState: {fileID: 11400000, guid: 2b1b3b50b0baaf04e990b25bef4751d6, type: 2}
-    and: 1
-  guardPoint: {x: 296.44412, y: 88.81419, z: 492.63193}
-  blendParametrer: Speed
+    and: 0
+  shoot: {fileID: 8590301162390378461, guid: 4c4b82d37b568d14a9de0e387764891d, type: 3}
+  timeShoot: 1.5
+  rotationSpeed: 5
