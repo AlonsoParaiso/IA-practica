@@ -35,7 +35,6 @@ public class SaveLoadTXT : MonoBehaviour
 
                 transform.position = new Vector3(x, y, z);
                 GameManager.instance.SetPoints(coin);
-                GameManager.instance.SetHours(hoursAux);
 
             }
             catch (System.Exception ex)
@@ -55,12 +54,7 @@ public class SaveLoadTXT : MonoBehaviour
         sw.WriteLine(transform.position.y);
         sw.WriteLine(transform.position.z);
         sw.WriteLine(GameManager.instance.GetPoints());
-        List<string> list = GameManager.instance.GetHours();
-        list.Add(DateTime.Now.ToString("HH:mm:ss"));
-        foreach (string s in list)
-        {
-            sw.WriteLine(s);
-        }
+
         
         sw.Close();//importante!!
 
