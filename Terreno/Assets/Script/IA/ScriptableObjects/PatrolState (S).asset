@@ -16,11 +16,13 @@ MonoBehaviour:
   - actionParameters:
     - action: {fileID: 11400000, guid: d9580e4bf2fe56046a45e7c2bc97c626, type: 2}
       actionValue: 1
+    - action: {fileID: 11400000, guid: 2d9200541666cee44a1c5577e83a5eef, type: 2}
+      actionValue: 1
     nextState: {fileID: 11400000, guid: f9bcf945926199d4aa018233d26b01c1, type: 2}
-    and: 0
+    and: 1
   guardsPoints:
   - {x: 278.7, y: 90.9, z: 397.11}
   - {x: 258, y: 84.84, z: 397.11}
-  currentTime: 1.8464962
+  currentTime: 2.0340688
   maxTime: 5
   blendParametrer: Speed
