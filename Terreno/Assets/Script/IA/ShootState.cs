@@ -15,9 +15,9 @@ public class ShootState : State
         currentTime +=Time.deltaTime;
         State nextState = CheckActions(owner);
         GameObject target = owner.GetComponent<Target>().target;
-        Quaternion roation = Quaternion.LookRotation(target.transform.position - owner.transform.position);
+        Quaternion roation = Quaternion.LookRotation(target.transform.position - owner.transform.position);//mira al taget
         owner.transform.rotation = Quaternion.Slerp(owner.transform.rotation, roation, Time.deltaTime * rotationSpeed);
-        if(currentTime > timeShoot) 
+        if(currentTime > timeShoot) //el tiempo que tarda en disparar
         {
             GameObject bullet = Instantiate(shoot, new Vector3(owner.transform.position.x, owner.transform.position.y, owner.transform.position.z),Quaternion.identity);
             bullet.GetComponent<Shoot>().dir = owner.transform.forward;

@@ -21,12 +21,12 @@ public class PatrolState : State
         NavMeshAgent agent = owner.GetComponent<NavMeshAgent>();
         Animator anim = owner.GetComponent<Animator>();
 
-        if (Mathf.Approximately(agent.remainingDistance,agent.stoppingDistance)) 
+        if (Mathf.Approximately(agent.remainingDistance,agent.stoppingDistance)) //cuando llega a su destino empiaza el tiempo
         { 
             currentTime += Time.deltaTime;
         }
 
-        agent.SetDestination(guardsPoints[i]);
+        agent.SetDestination(guardsPoints[i]); //se mueve al destino
 
         if (currentTime >= maxTime) 
         {

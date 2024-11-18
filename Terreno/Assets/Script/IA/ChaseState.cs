@@ -16,8 +16,8 @@ public class ChaseState : State
         GameObject target= owner.GetComponent<Target>().target;
         Animator anim = owner.GetComponent<Animator>();
 
-        agent.SetDestination(target.transform.position);
-        anim.SetFloat(blendParametrer, agent.velocity.magnitude / agent.speed);
+        agent.SetDestination(target.transform.position);//decide destino
+        anim.SetFloat(blendParametrer, agent.velocity.magnitude / agent.speed);// animacion
 
 
         return nextState;

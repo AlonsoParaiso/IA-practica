@@ -16,7 +16,7 @@ public class GuardState : State
         NavMeshAgent agent = owner.GetComponent<NavMeshAgent>();
         Animator anim = owner.GetComponent<Animator>();
 
-        agent.SetDestination(guardPoint);
+        agent.SetDestination(guardPoint);//punto de guardia
         anim.SetFloat(blendParametrer, agent.velocity.magnitude / agent.speed);
 
         return nextState;

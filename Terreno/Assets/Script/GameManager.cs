@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,6 +28,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
+        if ( Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
 
     // getter
@@ -57,4 +63,6 @@ public class GameManager : MonoBehaviour
         time = 0;
         SceneManager.LoadScene(sceneName);
     }
+
+    
 }
